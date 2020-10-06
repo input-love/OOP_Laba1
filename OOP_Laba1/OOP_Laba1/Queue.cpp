@@ -22,15 +22,19 @@ void Queue::push(const int& data) {
 }
 
 void Queue::pop() {
-    _head++;
-    if (_head == _sizeArr) {
-        _head = 0;
+    if (_count > 0) {
+        _head++;
+        if (_head == _sizeArr) {
+            _head = 0;
+        }
+        _count--;
+    } else {
+        throw Error("Нельзя удалить элемент - Очередь пустая");
     }
-    _count--;
 }
 
 bool Queue::isEmpty() const {
-    if (_count) {
+    if (_count > 0) {
         return !_count;
     } else {
         throw Error("Очередь пустая");
@@ -38,7 +42,7 @@ bool Queue::isEmpty() const {
 }
 
 int Queue::front() const {
-    if (_count) {
+    if (_count > 0) {
         return *(_arr + _head);
     } else {
         throw Error("В очереди нет элементов");

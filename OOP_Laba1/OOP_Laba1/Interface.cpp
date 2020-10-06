@@ -6,8 +6,10 @@ void Interface::run() {
     setlocale(LC_ALL, "Russian");
 
     int sizeList;
-    std::cout << "Сколько элементов в очереди?: ";
-    std::cin >> sizeList;
+    do {
+        std::cout << "Сколько элементов в очереди?: ";
+        std::cin >> sizeList;
+    } while (sizeList <= 0);
 
     Queue _queue(sizeList);
 
