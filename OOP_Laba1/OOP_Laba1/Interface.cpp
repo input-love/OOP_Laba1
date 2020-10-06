@@ -11,7 +11,7 @@ void Interface::run() {
         std::cin >> sizeList;
     } while (sizeList <= 0);
 
-    Queue _queue(sizeList);
+    Queue queue(sizeList);
 
     while (true) {
         int check;
@@ -21,28 +21,28 @@ void Interface::run() {
         try {
             switch (check) {
             case 1:
-                std::cout << "Ваше число: " << _queue.front() << std::endl;
+                std::cout << "Ваше число: " << queue.front() << std::endl;
                 break;
             case 2:
-                if (!_queue.isEmpty()) {
+                if (!queue.isEmpty()) {
                     std::cout << "Очередь не пустая" << std::endl;
                 } else {
                     std::cout << "Очередь пустая" << std::endl;
                 }
                 break;
             case 3:
-                _queue.pop();
+                queue.pop();
                 break;
             case 4:
                 int Element;
                 std::cin >> Element;
-                _queue.push(Element);
+                queue.push(Element);
                 break;
             case 5:
                 return;
             }
-        } catch (const std::exception& except) {
-            std::cout << except.what() << std::endl;
+        } catch (const std::exception& exept) {
+            std::cout << exept.what() << std::endl;
         }
     }
 }
