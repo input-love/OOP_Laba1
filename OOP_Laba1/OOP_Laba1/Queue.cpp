@@ -14,7 +14,7 @@ void Queue::push(const int& data) {
         _tail = -1;
         _useItem = 0;
     }
-    _arr[++_tail] = data;
+    *(_arr + (++_tail)) = data;
     _useItem++;
 }
 
