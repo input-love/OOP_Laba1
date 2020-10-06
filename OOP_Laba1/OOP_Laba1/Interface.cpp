@@ -5,11 +5,11 @@ Interface::Interface() = default;
 void Interface::run() {
     setlocale(LC_ALL, "Russian");
 
-    int _sizeList;
+    int sizeList;
     std::cout << "Сколько элементов в очереди?: ";
-    std::cin >> _sizeList;
+    std::cin >> sizeList;
 
-    Queue _queue(_sizeList);
+    Queue _queue(sizeList);
 
     while (true) {
         int check;

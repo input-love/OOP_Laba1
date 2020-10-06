@@ -21,6 +21,6 @@ private:
     int _sizeArr;
     int _head = 0;
     int _tail = -1;
-    int _useItem = 0;
+    int _count = 0;
 
 };

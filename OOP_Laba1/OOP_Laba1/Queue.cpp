@@ -10,12 +10,15 @@ Queue::~Queue() {
 }
 
 void Queue::push(const int& data) {
-    if (_tail == _sizeArr - 1) {
-        _tail = -1;
-        _useItem = 0;
+    if (_count != _sizeArr) {
+        if (_tail == _sizeArr - 1) {
+            _tail = -1;
+        }
+        *(_arr + (++_tail)) = data;
+        _count++;
+    } else {
+        throw Error("Очередь переполнена");
     }
-    *(_arr + (++_tail)) = data;
-    _useItem++;
 }
 
 void Queue::pop() {
@@ -23,17 +26,21 @@ void Queue::pop() {
     if (_head == _sizeArr) {
         _head = 0;
     }
-    _useItem--;
+    _count--;
 }
 
 bool Queue::isEmpty() const {
-    return !_useItem;
+    if (_count) {
+        return !_count;
+    } else {
+        throw Error("Очередь пустая");
+    }
 }
 
 int Queue::front() const {
-    if (!_head && (_tail != -1)) {
+    if (_count) {
         return *(_arr + _head);
     } else {
-        throw Error("Элемент не существует!");
+        throw Error("В очереди нет элементов");
     }
 }
