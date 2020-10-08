@@ -25,9 +25,9 @@ void Interface::run() {
                 break;
             case 2:
                 if (!queue.isEmpty()) {
-                    std::cout << "ќчередь не пуста€" << std::endl;
+                    std::cout << "Ёлемент существует, очередь не пуста€" << std::endl;
                 } else {
-                    std::cout << "ќчередь пуста€" << std::endl;
+                    std::cout << "Ёлемент не найден, очередь пуста€" << std::endl;
                 }
                 break;
             case 3:

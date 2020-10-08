@@ -1,14 +1,17 @@
 #pragma once
+#include <iostream>
 
 class Queue {
 public:
     Queue();
 
-    Queue(const int& size);
+    Queue(const int size);
+
+    Queue(const Queue& data);
 
     ~Queue();
 
-    void push(const int& data);
+    void push(const int data);
 
     void pop();
 
